@@ -1,0 +1,30 @@
+{
+  "extends": "./node_modules/electron-webpack/tsconfig-base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["renderer/*"],
+      "renderer2/*": ["renderer2/*"],
+      "common/*": ["common/*"]
+    },
+    "baseUrl": "src/",
+    "jsx": "react",
+    "types": ["node"],
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strictPropertyInitialization": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "alwaysStrict": true,
+    "strictFunctionTypes": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "include": ["./src"],
+  "exclude": ["node_modules"]
+}
