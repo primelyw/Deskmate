@@ -1,5 +1,4 @@
-const { app, BrowserWindow ,Menu, Tray } = require('electron')
-
+const { app, BrowserWindow ,Menu, Tray, MenuItem } = require('electron')
 app.setAboutPanelOptions(
   {
     applicationName: 'Deskmate',
@@ -11,17 +10,21 @@ app.setAboutPanelOptions(
 )
 
 app.dock.setIcon('./images/icn2Template.png')
-
+//app.dock.hide()
 
 function createWindow () {   
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 400,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    frame: true,
+    transparent: false
   })
-  win.loadFile('index.html')
+  win.loadFile('src/index.html')
+  win.setAlwaysOnTop(true)
+  //win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
@@ -34,7 +37,6 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-
   if(BrowserWindow.getAllWindows().length===0){
     createWindow()
   }
@@ -52,6 +54,9 @@ app.on('ready', () => {
   tray.setToolTip("Hi")
   tray.setContextMenu(contextMenu)
 })
+
+
+
 
 
 
